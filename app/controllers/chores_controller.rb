@@ -4,6 +4,10 @@ class ChoresController < ApplicationController
     @rewards = Reward.all
   end
 
+  def show
+  	@chore = Chore.all
+  end
+
     def destroy
     @chore = Chore.find(params[:id]).destroy
     respond_to do |format|
@@ -17,7 +21,7 @@ class ChoresController < ApplicationController
   end
 
 def create
-    @chore = Chore.new
+    @chore = Chore.new(chore_params)
 
     respond_to do |format|
       if @chore.save
@@ -30,5 +34,8 @@ def create
     end
   end
 
+    def chore_params
+      params.require(:chore).permit(:name, :score)
+    end
 
 end

@@ -5,7 +5,8 @@ class RewardsController < ApplicationController
   end
 
   def show
-  	@reward = Reward.find(params[:id])
+  	@reward = Reward.all
+    @member = Member.all
   end
 
   def new
@@ -21,7 +22,7 @@ class RewardsController < ApplicationController
   end
 
   def create
-    @reward = Reward.new
+    @reward = Reward.new(reward_params)
 
     respond_to do |format|
       if @reward.save
@@ -33,5 +34,9 @@ class RewardsController < ApplicationController
       end
     end
 end
+
+   def reward_params
+      params.require(:reward).permit(:name)
+    end
 
 end

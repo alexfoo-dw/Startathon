@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Checklist</title>
+    <title>Profile</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -69,30 +69,33 @@
     <div class="container theme-showcase" role="main">
 
         <div class="page-header">
-            <h1>Chores Checklist</h1>
+            <h1>Ranking!</h1>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Chore</th>
-                            <th>Score</th>
+                        
+                            <th>Name</th>
+                            <th>Total Score</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                              
-                               <% @chores.each do |chore| %>
-                                <tr>
-                                <td><%= chore.name %></td>
-                                <td><%= chore.score %></td>
-                                <td><%= link_to 'Delete', chore, method: :delete %></td>
-      </tr>
-                            
-                                
-                                <% end %>
+                        <% @member.each do |member| %>
+                         <tr>
+                        <td><%= member.user %></td>
+                        <td><%= member.score %></td>
+                        <td><%= link_to 'edit', member, method: :get %></td>
+
+            </tr>
+    <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+       
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -104,7 +107,7 @@
                         <tr>
                             <td>
                                 <p>
-                                     <%= button_to "Add Chore", new_chore_path(@chore), type: "button", class: "btn btn-lg btn-success", method: :get %>
+                                    <%= button_to "Allocate Rewards", rewards_path, type: "button", class: "btn btn-lg btn-success", method: :get %>
                                     </a>
                                 </p>
                             </td>
@@ -115,52 +118,9 @@
         </div>
     </div>
     <!-- /container -->
-        <div class="page-header">
-            <h1>Rewards</h1>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <table class="table table-bordered table-condensed">
-                    <tbody>
-                            <% @rewards.each do |reward| %>
-                             <tr>
-        <td><%= reward.name %></td>
-      
-        <td><%= link_to 'Delete', reward, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-
-                    </tbody>
-                </table>
-                 <%= button_to "Create Reward", new_reward_path(@reward), type: "button", class: "btn btn-lg btn-success", method: :get %>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <p>
-                                     <%= button_to "GO!", chore_path(id: 1), type: "button", class: "btn btn-lg btn-success", method: :get %>
-                                    </a>
-                                </p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
 
 
-  <tbody>
-
-  </tbody>
-</table>
-
-   <!-- Bootstrap core JavaScript
+    <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -175,4 +135,3 @@
 </body>
 
 </html>
-

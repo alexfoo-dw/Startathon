@@ -1,21 +1,11 @@
-<%= form_for(@chorelist) do |f| %>
-  <% if @chorelist.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@chorelist.errors.count, "error") %> prohibited this member from being saved:</h2>
+<%= form_for @chorelist, url: new_chorelist_path(@chorelist), html: { method: :put } do |f| %>
 
-      <ul>
-      <% @chorelist.errors.full_messages.each do |chorelist| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-
+  
   <div class="actions">
     <%= f.submit %>
   </div>
