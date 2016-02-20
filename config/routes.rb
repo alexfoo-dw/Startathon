@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :members, :chores, :chorelists
+  resources :members, :chores, :chorelists, :rewards
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
