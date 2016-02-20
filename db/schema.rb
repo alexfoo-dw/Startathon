@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220170303) do
+ActiveRecord::Schema.define(version: 20160220173845) do
 
   create_table "chore_lists", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "winner"
   end
 
   create_table "chores", force: :cascade do |t|

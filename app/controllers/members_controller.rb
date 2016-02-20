@@ -5,6 +5,7 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @members = Member.all
+    @chorelists = ChoreList.all
   end
 
   # GET /members/1
@@ -61,6 +62,8 @@ class MembersController < ApplicationController
     end
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_member
@@ -71,4 +74,6 @@ class MembersController < ApplicationController
     def member_params
       params.require(:member).permit(:user, :user_id, :score)
     end
+
+
 end
