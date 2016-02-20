@@ -28,24 +28,6 @@
     <![endif]-->
 </head>
 
-<table>
-  <thead>
-    <tr>
-      <th>Reward</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @rewards.each do |reward| %>
-      <tr>
-        <td><%= reward.name %></td>
-        <td><%= link_to 'Edit', edit_reward_path(reward) %></td>
-        <td><%= link_to 'Destroy', reward, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 <body role="document">
 
     <!-- Fixed navbar -->
@@ -58,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Bootstrap theme</a>
+                <a class="navbar-brand" href="#">Chore No More</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -112,6 +94,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                      <% @rewards.each do |reward| %>
                         <tr>
                             <td>
                                 <div class="checkbox">
@@ -120,27 +103,11 @@
                                     </label>
                                 </div>
                             </td>
-                            <td>Peanut Butter Sandwich</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">
-                                    </label>
-                                </div>
-                            </td>
-                            <td>Chocolate</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">
-                                    </label>
-                                </div>
-                            </td>
-                            <td>Attending the Startathon</td>
+                           
+                            <td><%= reward.name %></td>
+                            
+                            
+                            <% end %>
                         </tr>
                     </tbody>
                 </table>
@@ -154,7 +121,7 @@
                             <td>
                                 <p>
                                     <a href="#">
-                                        <button type="button" class="btn btn-lg btn-success">Select Reward</button>
+                                        <%= button_to "Allocated Rewards", members_path, type: "button", class: "btn btn-lg btn-success", method: :get %>
                                     </a>
                                 </p>
                             </td>
