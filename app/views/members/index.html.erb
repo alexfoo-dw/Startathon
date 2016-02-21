@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Bootstrap theme</a>
+                <a class="navbar-brand" href="#"></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -109,17 +109,17 @@
                         <tr>
                             <th>List</th>
                             <th>Date</th>
-                            <th>Winner</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
-                 <% @chorelists.each do |chorelist| %>
+                 <% @lists.each do |list| %>
                    <tr>
-                    <td><%= chorelist.name %></td>
-                    <td><%= chorelist.created_at %></td>
-                    <td><%= chorelist.winner %></td>
+                    <td><%= list.name %></td>
+                    <td><%= list.created_at %></td>
+                
                    
-                    <td><%= link_to 'Edit', edit_chorelist_path(chorelist) %></td>
+                    <td><%= link_to 'Delete', list, method: :delete %></td>
                   
                   </tr>
                      <% end %>
@@ -132,7 +132,7 @@
                 
                             
                                 <p>
-                                      <%= button_to "New List", new_chorelist_path, type: "button", class: "btn btn-lg btn-success", method: :get %>
+                                      <%= button_to "New List", new_list_path, type: "button", class: "btn btn-lg btn-success", method: :get %>
                                 </p>
                             
                         
