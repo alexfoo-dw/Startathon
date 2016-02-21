@@ -12,7 +12,6 @@
 
     <title>Family Profile</title>
 
-    <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
@@ -75,7 +74,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            
+
                             <th>Name</th>
                             <th>Total Points</th>
                         </tr>
@@ -83,7 +82,7 @@
                     <tbody>
                         <% @members.each do |member| %>
                          <tr>
-                      
+
                         <td><%= member.user %></td>
                         <td><%= member.score %></td>
                         <td><%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -96,8 +95,8 @@
         </div>
         <%= button_to "Invite Member", new_member_path, type: "button", class: "btn btn-lg btn-success", method: :get %>
 
-        
-       
+
+
 
         <div class="page-header">
             <h1>Chore List</h1>
@@ -109,7 +108,7 @@
                         <tr>
                             <th>List</th>
                             <th>Date</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
@@ -117,10 +116,10 @@
                    <tr>
                     <td><%= list.name %></td>
                     <td><%= list.created_at %></td>
-                
-                   
+
+
                     <td><%= link_to 'Delete', list, method: :delete %></td>
-                  
+
                   </tr>
                      <% end %>
                     </tbody>
@@ -129,15 +128,15 @@
         </div>
         <div class="row">
             <div class="col-md-9">
-                
-                            
+
+
                                 <p>
                                       <%= button_to "New List", new_list_path, type: "button", class: "btn btn-lg btn-success", method: :get %>
                                 </p>
-                            
-                        
-                    
-                
+
+
+
+
             </div>
         </div>
     </div>
